@@ -14,27 +14,47 @@ export default function About() {
       />
 
       <div className="max-w-5xl mx-auto relative">
-        {/* Section heading */}
-        <p className="uppercase tracking-[0.35em] text-sm text-gray-400 mb-3">
-          My Introduction
-        </p>
+        {/* ✅ CENTERED & ANIMATED SECTION TITLE */}
+        <div className="text-center mb-14 animate-fade-in-up">
+          <p className="uppercase tracking-[0.35em] text-sm text-gray-400 mb-3">
+            My Introduction
+          </p>
 
-        <h2
-          className="text-4xl md:text-5xl font-extrabold mb-10
-                     bg-gradient-to-r from-purple-400 to-indigo-400
-                     bg-clip-text text-transparent"
-        >
-          About Me
-        </h2>
+          <h2
+            className="text-4xl md:text-5xl font-extrabold
+                       bg-gradient-to-r from-purple-400 to-indigo-400
+                       bg-clip-text text-transparent"
+          >
+            About Me
+          </h2>
+        </div>
 
-        {/* Glass Card */}
+        {/* 3D Glass Card */}
         <div
-          className="bg-white/5 backdrop-blur-xl border border-white/10
-                     rounded-3xl p-8 md:p-10
-                     shadow-[0_20px_60px_rgba(0,0,0,0.45)]
-                     hover:border-purple-400/40
-                     transition-all duration-500"
+          className="
+            relative
+            bg-white/5 backdrop-blur-xl
+            border border-white/10
+            rounded-3xl p-8 md:p-10
+            shadow-[0_25px_80px_rgba(0,0,0,0.55)]
+            transition-all duration-700 ease-out
+            transform-gpu
+            hover:-translate-y-3
+            hover:rotate-x-[4deg]
+            hover:rotate-y-[-3deg]
+            hover:shadow-[0_40px_120px_rgba(139,92,246,0.35)]
+            hover:border-purple-400/50
+          "
+          style={{ transformStyle: "preserve-3d" }}
         >
+          {/* Inner glow layer */}
+          <div
+            className="absolute inset-0 rounded-3xl
+                       bg-gradient-to-br from-purple-500/10 via-transparent to-indigo-500/10
+                       opacity-0 hover:opacity-100
+                       transition-opacity duration-700 pointer-events-none"
+          />
+
           <p className="text-gray-300 leading-8 text-lg">
             I’m{" "}
             <span className="text-white font-semibold">
@@ -103,8 +123,7 @@ export default function About() {
 
           {/* Quote */}
           <p className="mt-8 italic text-gray-400 border-l-4 border-purple-500 pl-4">
-            “Design is intelligence made visible. Code brings it to
-            life.”
+            “Design is intelligence made visible. Code brings it to life.”
           </p>
         </div>
       </div>

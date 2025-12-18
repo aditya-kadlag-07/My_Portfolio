@@ -9,7 +9,13 @@ import {
   FaGithub,
   FaAws,
 } from "react-icons/fa";
-import { SiTailwindcss, SiSpringboot, SiMysql, SiMongodb, SiPostman } from "react-icons/si";
+import {
+  SiTailwindcss,
+  SiSpringboot,
+  SiMysql,
+  SiMongodb,
+  SiPostman,
+} from "react-icons/si";
 import { VscCode } from "react-icons/vsc";
 import { DiEclipse } from "react-icons/di";
 
@@ -28,24 +34,29 @@ export default function Skills() {
       </div>
 
       <div className="max-w-6xl mx-auto text-center">
-        {/* Heading */}
-        <p className="uppercase tracking-[0.35em] text-sm text-gray-400 mb-3">
+        {/* Animated Heading */}
+        <p className="uppercase tracking-[0.35em] text-sm text-gray-400 mb-3
+                      animate-[fadeIn_1s_ease-out]">
           Expertise
         </p>
 
-        <h2 className="text-4xl md:text-5xl font-extrabold mb-6
-                       bg-gradient-to-r from-purple-400 to-indigo-400
-                       bg-clip-text text-transparent">
+        <h2
+          className="text-4xl md:text-5xl font-extrabold mb-6
+                     bg-gradient-to-r from-purple-400 via-indigo-400 to-pink-400
+                     bg-clip-text text-transparent
+                     animate-[slideUp_1s_ease-out]"
+        >
           Skills & Technologies
         </h2>
 
-        <p className="text-gray-400 max-w-2xl mx-auto mb-16">
+        <p className="text-gray-400 max-w-2xl mx-auto mb-16
+                      animate-[fadeIn_1.2s_ease-out]">
           A modern, production-focused tech stack I use to build scalable,
           performant, and clean applications.
         </p>
 
         {/* Cards */}
-        <div className="grid gap-10 md:grid-cols-3">
+        <div className="grid gap-10 md:grid-cols-3 perspective-[1200px]">
           {/* Programming */}
           <SkillCard title="Programming Languages" color="purple">
             <Skill icon={<FaJava />} label="Java" />
@@ -84,10 +95,10 @@ export default function Skills() {
 function SkillCard({ title, color, children }) {
   const glow =
     color === "purple"
-      ? "hover:border-purple-400/50 hover:shadow-[0_0_45px_rgba(139,92,246,0.25)]"
+      ? "hover:border-purple-400/60 hover:shadow-[0_0_60px_rgba(139,92,246,0.35)]"
       : color === "indigo"
-      ? "hover:border-indigo-400/50 hover:shadow-[0_0_45px_rgba(99,102,241,0.25)]"
-      : "hover:border-pink-400/50 hover:shadow-[0_0_45px_rgba(236,72,153,0.25)]";
+      ? "hover:border-indigo-400/60 hover:shadow-[0_0_60px_rgba(99,102,241,0.35)]"
+      : "hover:border-pink-400/60 hover:shadow-[0_0_60px_rgba(236,72,153,0.35)]";
 
   const titleColor =
     color === "purple"
@@ -98,12 +109,16 @@ function SkillCard({ title, color, children }) {
 
   return (
     <div
-      className={`bg-white/5 backdrop-blur-xl border border-white/10
+      className={`group bg-white/5 backdrop-blur-xl border border-white/10
                   rounded-3xl p-8
-                  transform hover:-translate-y-2
+                  transform-gpu
+                  hover:-translate-y-3 hover:rotate-x-6 hover:rotate-y-3
                   transition-all duration-500 ${glow}`}
     >
-      <h3 className={`text-xl font-semibold mb-6 ${titleColor}`}>
+      <h3
+        className={`text-xl font-semibold mb-6 ${titleColor}
+                    group-hover:scale-105 transition-transform`}
+      >
         {title}
       </h3>
 
@@ -119,8 +134,11 @@ function Skill({ icon, label }) {
     <span
       className="flex items-center gap-2 px-4 py-2 rounded-full text-sm
                  border border-white/20 bg-white/5
-                 hover:scale-105 hover:border-white/40
-                 transition-all duration-300"
+                 transform-gpu
+                 hover:scale-110 hover:-translate-y-1
+                 hover:border-white/40 hover:shadow-lg
+                 transition-all duration-300
+                 animate-[float_4s_ease-in-out_infinite]"
     >
       <span className="text-lg">{icon}</span>
       {label}
